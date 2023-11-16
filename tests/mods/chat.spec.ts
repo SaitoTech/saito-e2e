@@ -36,5 +36,5 @@ test("chat loading in arcade", async ({page}) => {
     text = await chatMsg.innerText();
     expect(text).toEqual(testText);
 
-    await newContext.browser().close();
+    // await newContext.browser().close();
 });
