@@ -19,7 +19,6 @@ export default class ArcadePage extends ModulePage {
 
         let createGameButton = this.page.locator(".saito-multi-select_btn_options", {hasText: "create public invite"});
         await chessMenuItem.waitFor();
-        // let createGameButton = await this.page.$(".saito-multi-select_btn_options > button[text()='create public invite']");
         expect(createGameButton).toBeTruthy();
         await createGameButton.click();
     }
