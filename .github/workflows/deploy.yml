@@ -51,17 +51,17 @@ jobs:
       run: npm run dev-server &
       working-directory: ./instance1
     - name: Wait for servers to start
-      run: sleep 60
+      run: sleep 120
 
     - name: Run go in instance 2
       run: npm run dev-server &
       working-directory: ./instance2
     
     - name: Wait for servers to start
-      run: sleep 60
+      run: sleep 120
 
     - name: Install dependencies
-      run: npm ci
+      run: npm install
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
       working-directory: tests
