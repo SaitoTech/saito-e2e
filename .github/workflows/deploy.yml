@@ -54,7 +54,7 @@ jobs:
     #   run: sleep 120
 
     - name: Run go in instance 2
-      run: npm run dev-server &
+      run: npm run dev-server
       working-directory: ./instance2
     
     # - name: Wait for servers to start
