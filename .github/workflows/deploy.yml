@@ -50,15 +50,15 @@ jobs:
     - name: Run go in instance 1
       run: npm run dev-server
       working-directory: ./instance1
-    - name: Wait for servers to start
-      run: sleep 120
+    # - name: Wait for servers to start
+    #   run: sleep 120
 
     - name: Run go in instance 2
       run: npm run dev-server &
       working-directory: ./instance2
     
-    - name: Wait for servers to start
-      run: sleep 120
+    # - name: Wait for servers to start
+    #   run: sleep 120
 
     - name: Checkout repository
       uses: actions/checkout@v3
