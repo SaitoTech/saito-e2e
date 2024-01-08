@@ -51,15 +51,32 @@ jobs:
       run: npm run dev-server &
       working-directory: ./instance1
     - name: Wait for servers to start
-      run: sleep 240
+      run: sleep 120
 
     - name: Run go in instance 2
       run: npm run dev-server &
       working-directory: ./instance2
     
     - name: Wait for servers to start
-      run: sleep 240
+      run: sleep 120
 
+    - name: Health check for instance 1
+      run: |
+        echo "Waiting for instance 1 to be ready..."
+        until curl --output /dev/null --silent --head --fail http://localhost:12101; do
+          printf '.'
+          sleep 5
+        done
+        echo "Instance 1 is up and running!"
+
+    - name: Health check for instance 2
+      run: |
+        echo "Waiting for instance 2 to be ready..."
+        until curl --output /dev/null --silent --head --fail http://localhost:12103; do
+          printf '.'
+          sleep 5
+        done
+        echo "Instance 2 is up and running!"
     - name: Checkout repository
       uses: actions/checkout@v3
 
