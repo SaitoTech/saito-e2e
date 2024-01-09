@@ -1,4 +1,4 @@
-name: Clone and Run Two Instances with Config Modification
+name: Spin up Saito Servers and Run CI Tests
 
 on:
   push:
