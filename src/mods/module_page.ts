@@ -1,4 +1,4 @@
-import {type Page, type Locator} from '@playwright/test'
+import { type Page, type Locator } from '@playwright/test'
 
 export default class ModulePage {
     readonly page: Page;
@@ -11,7 +11,7 @@ export default class ModulePage {
 
     async goto() {
         await this.page.goto(this.url);
-        // TODO : check if this timeout can be removed and start testing when the page is loaded
+        // TODO : check if this timeout can be removed and start testing when the page is loade
         await this.page.waitForTimeout(1000);
 
         // await this.page.waitForLoadState();
