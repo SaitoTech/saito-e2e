@@ -7,28 +7,25 @@ export default class RedsquarePage extends ModulePage {
         super(page, "/redsquare");
     }
 
-    async openChat() {
-
-    }
-
     async createNewTweet() {
-        const newTweetButton = this.page.locator('#new-tweet');
-        await newTweetButton.click()
-        const tweetTextArea = this.page.locator('#post-tweet-textarea');
-        await expect(tweetTextArea).toBeVisible();
+        const selectors = {
+            newTweetButton: '#new-tweet',
+            tweetTextArea: '#post-tweet-textarea',
+            postTweetButton: '#post-tweet-button',
+            tweetTextElement: '.tweet-text'
+        };
+        await this.page.locator(selectors.newTweetButton).click();
+        await this.page.locator(selectors.tweetTextArea).waitFor();
 
         const tweetText = "Hello, this is a test tweet!";
-        await tweetTextArea.fill(tweetText);
+        await this.page.locator(selectors.tweetTextArea).fill(tweetText);
 
-        const postTweetButton = this.page.locator('#post-tweet-button');
-        await postTweetButton.click();
+        await this.page.locator(selectors.postTweetButton).click();
 
+        await this.page.locator(`${selectors.tweetTextElement}`, { hasText: tweetText }).waitFor();
 
-        await this.page.waitForTimeout(5000);
-
-        const tweetTextElement = this.page.locator('.tweet-text', { hasText: tweetText });
-
-        await expect(tweetTextElement).toBeVisible();
+        await expect(this.page.locator(`${selectors.tweetTextElement}`)).toBeVisible();
     }
+
 }
 

@@ -13,8 +13,8 @@ test("chat loading in arcade", async ({ page }) => {
     let chatManager = await page.locator('.chat-manager-list> .saito-user').click();
 
     let chatInput = await page.$(".chat-footer > .saito-input > #text-input");
-    expect(chatInput).toBeTruthy();
 
+    expect(chatInput).toBeTruthy();
 
     let testText = "E2E Test";
 
@@ -33,7 +33,6 @@ test("chat loading in arcade", async ({ page }) => {
 
     chatMsg = await page.$(".chat-body > .saito-user:last-child > .saito-userline");
     expect(chatMsg).toBeTruthy();
-
     let text = await chatMsg.innerText();
     console.log(text, testText)
     expect(text.trim()).toEqual(testText.trim());
