@@ -8,7 +8,7 @@ test("chat loading in arcade", async ({ page }) => {
 
     await page.waitForTimeout(1000);
 
-    // await page.waitForLoadState();
+
 
     let chatManager = await page.locator('.chat-manager-list> .saito-user').click();
 
