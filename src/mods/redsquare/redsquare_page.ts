@@ -25,6 +25,7 @@ export default class RedsquarePage extends ModulePage {
         await this.page.locator(`${selectors.tweetTextElement}`, { hasText: tweetText }).waitFor();
 
         await expect(this.page.locator(`${selectors.tweetTextElement}`)).toBeVisible();
+        // yes
     }
 
 }
