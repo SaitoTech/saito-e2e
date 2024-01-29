@@ -27,10 +27,5 @@ export default defineConfig({
         },
     ],
     timeout: 30000,
-    // Uncomment and adjust if you need to start a server as part of your tests
-    // webServer: {
-    //   command: 'npm run start',
-    //   url: 'http://localhost:12101', // Adjust to match your server
-    //   reuseExistingServer: !process.env.CI,
-    // },
+
 });
