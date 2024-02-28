@@ -31,6 +31,6 @@ export default defineConfig({
     // webServer: {
     //   command: 'npm run start',
     //   url: 'http://localhost:12101', // Adjust to match your server
-    //   reuseExistingServer: !process.env.CIS
+    //   reuseExistingServer: !process.env.CI
     // },
 });
